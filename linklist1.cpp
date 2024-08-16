@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
-class node
+struct node
 {
-public:
+
     int v;
     node *next;
 };
