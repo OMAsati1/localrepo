@@ -1,7 +1,8 @@
 #include <iostream>
 using namespace std;
-struct node
+class node
 {
+public:
     int v;
     node *next;
 };
@@ -74,7 +75,7 @@ public:
         }
         node *t;
         t = start;
-        int c=start->v;
+        int c = start->v;
         start = start->next;
         delete t;
         return c;
@@ -89,7 +90,6 @@ public:
         if (start->next == NULL)
         {
             return removeFirst();
-            
         }
         else
         {
@@ -99,7 +99,7 @@ public:
                 temp = temp->next;
             }
             node *t = temp->next;
-            int c=t->v;
+            int c = t->v;
             temp->next = NULL;
             delete t;
             return c;
@@ -107,7 +107,6 @@ public:
     }
     int removeNTH(int pos)
     {
-        
 
         if (pos == 1)
         {
@@ -119,17 +118,16 @@ public:
             return removeLast();
         }
         node *temp = start;
-        for (int i = 2; i <= pos-1; i++)
+        for (int i = 2; i <= pos - 1; i++)
         {
             temp = temp->next;
         }
 
         int c = temp->next->v;
-        node*temp1=temp->next;
-        temp->next=temp->next->next;
+        node *temp1 = temp->next;
+        temp->next = temp->next->next;
         delete temp1;
         return c;
-    
     }
     void display()
     {
@@ -169,10 +167,9 @@ int main()
     // l.display();
     // cout<<endl;
     // cout<<"\nafter nth removable"<<'\n';
-    cout<<l.getLength()<<endl;
-    int a;
-    cin>>a;
-    cout<<l.removeNTH(a)<<endl;
+    cout << "Lenght of list: " << l.getLength() << endl;
+
+    cout << "removed elemet is: " << l.removeNTH(4) << endl;
 
     l.display();
 
